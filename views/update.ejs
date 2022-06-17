@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>CRUD Operation</title>
+</head>
+
+<body>
+    <div class="parent">
+        <nav id="navbar">
+            <ul>
+                <li class="item">
+                    <a href="/">Register</a>
+                </li>
+                <li class="item">
+                    <a href="/fetch">Fetch</a>
+                </li>
+                <li class="item">
+                    <a>Delete</a>
+                </li>
+                <li class="item">
+                    <a>Update</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="reg">
+            <form action="/api/users" method="post">
+                <input type="hidden" name="" id="<%=userdbs._id%>">
+                <input type="text" name="name" id="name" placeholder="Enter Name" value="<%=userdbs.name%>" required><br>
+                <input type="email" name="email" id="email" placeholder="Enter Email" value="<%=userdbs.email%>" required><br>
+                <input type="number" name="mno" id="mno" placeholder="Enter Phone Number" value="<%=userdbs.mobile%>" required><br>
+                <input type="submit" name="submit" id="submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

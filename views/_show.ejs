@@ -1,0 +1,16 @@
+<%for(var i=0; i<userdbs.length ; i++){ %>
+    <div id="fet">
+        <div id="name" class="fetch">Name : <%=userdbs[i].name%>
+        </div>
+        <div id="email" class="fetch">Email : <%=userdbs[i].email%>
+        </div>
+        <div id="mno" class="fetch">Moblie No : <%=userdbs[i].mobile%>
+        </div>
+        <div class="edit fetch">
+            <a href="/update?id=<%=userdbs[i]._id%>">Edit</a>
+        </div>
+        <div class="delete fetch">
+            <a data-id="<%= userdbs[i]._id%>" class="deletes">Delete</a>
+        </div>
+    </div>
+    <% } %>
