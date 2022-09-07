@@ -1,3 +1,6 @@
+## Deployment Link
+- https://user-mgmt0121.herokuapp.com/
+
 ## CRUD operation in Mongo DB Atlas, using node js and express js.
 I have included 4 API gateways for the four operations, CREATE READ UPDATE DELETE. 
  One can create a user, then he can fetch the list of all the users, in the fetch section one can edit the user detail and also delete the user.
