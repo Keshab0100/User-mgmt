@@ -2,7 +2,9 @@ const express = require("express");
 const route = express.Router();
 const axios = require("axios");
 const controller = require("../controller/controller");
-
+const dotenv = require("dotenv");
+const PORT = process.env.PORT;
+dotenv.config({ path: "config.env" });
 route.get("/", (req, res) => {
   res.render("index");
   console.log("Sucess");
@@ -10,7 +12,7 @@ route.get("/", (req, res) => {
 
 route.get("/fetch", (req, res) => {
   axios
-    .get("http://localhost:8000/api/users/")
+    .get(`http://localhost:${PORT}/api/users/`)
     .then(function (response) {
       res.render("fetch", { userdbs: response.data });
     })
@@ -20,7 +22,9 @@ route.get("/fetch", (req, res) => {
 });
 route.get("/update", (req, res) => {
   axios
-    .get("http://localhost:${}{/api/users/", { params: { id: req.query.id } })
+    .get(`http://localhost:${PORT}/api/users/`, {
+      params: { id: req.query.id },
+    })
     .then(function (response) {
       res.render("update", { userdbs: response.data });
     })

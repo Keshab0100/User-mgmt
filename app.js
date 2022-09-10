@@ -3,9 +3,10 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyparser = require("body-parser");
 const dotenv = require("dotenv");
-const PORT = 8000 || process.env.PORT;
+const PORT = process.env.PORT || 8000;
 const app = express();
-const conDB = require('./src/database/connection')
+const conDB = require("./src/database/connection");
+// app.use(express.json());
 
 dotenv.config({ path: "config.env" });
 app.set("view engine", "ejs");
@@ -16,7 +17,7 @@ app.use(express.static(static_path));
 app.use(morgan("tiny"));
 conDB();
 
-app.use('/',require('./src/route/router'))
+app.use("/", require("./src/route/router"));
 
 app.listen(PORT, () => {
   console.log("listening");
