@@ -15,7 +15,7 @@ exports.insertUser = (req, res) => {
   user
     .save(user)
     .then((data) => {
-      res.status(201).json({sucess:true, data})
+      res.status(201).json({ sucess: true, data });
       // res.redirect('/fetch')
     })
     .catch((err) => {
@@ -68,14 +68,14 @@ exports.updateUser = (req, res) => {
   }
   const id = req.params.id;
   userDb
-    .findByIdAndUpdate(id, req.body, { useFindAndModify: false, new:true })
+    .findByIdAndUpdate(id, req.body, { useFindAndModify: false, new: true })
     .then((data) => {
       if (!data) {
         res.status(400);
       } else {
         // res.send(data);
-        res.status(201).json({success:true, data})
-        res.redirect('/fetch')
+        res.status(201).json({ success: true, data });
+        res.redirect("/fetch");
       }
     })
     .catch((err) => {
