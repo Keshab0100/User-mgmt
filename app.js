@@ -12,6 +12,19 @@ dotenv.config({ path: "config.env" });
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 const static_path = path.join(__dirname, "./public");
 app.use(express.static(static_path));
 app.use(morgan("tiny"));
