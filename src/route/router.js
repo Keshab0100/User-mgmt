@@ -20,7 +20,7 @@ route.get("/fetch", (req, res) => {
 });
 route.get("/update", (req, res) => {
   axios
-    .get("http://localhost:8000/api/users/", {params: {id:req.query.id}})
+    .get("http://localhost:${}{/api/users/", { params: { id: req.query.id } })
     .then(function (response) {
       res.render("update", { userdbs: response.data });
     })
