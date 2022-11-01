@@ -1,27 +1,5 @@
 const userDb = require("../model/model");
 
-exports.insertUser = (req, res) => {
-  if (!req.body) {
-    res.status(400).send("Content cannot be empty");
-    return;
-  }
-  const user = new userDb({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.pass,
-    mobile: req.body.mno,
-  });
-
-  user
-    .save(user)
-    .then((data) => {
-      res.status(201).json({ sucess: true, data });
-      // res.redirect('/fetch')
-    })
-    .catch((err) => {
-      res.send(err);
-    });
-};
 exports.fetchUser = (req, res) => {
   if (req.query.id) {
     const id = req.query.id;
@@ -43,6 +21,28 @@ exports.fetchUser = (req, res) => {
         console.log(err);
       });
   }
+};
+exports.insertUser = (req, res) => {
+  if (!req.body) {
+    res.status(400).send("Content cannot be empty");
+    return;
+  }
+  const user = new userDb({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.pass,
+    mobile: req.body.mno,
+  });
+
+  user
+    .save(user)
+    .then((data) => {
+      res.status(201).json({ sucess: true, data });
+      // res.redirect('/fetch')
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 exports.deleteUser = (req, res) => {
   const id = req.params.id;
