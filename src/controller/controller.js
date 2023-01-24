@@ -37,8 +37,12 @@ exports.insertUser = (req, res) => {
   user
     .save(user)
     .then((data) => {
-      res.status(201).json({ sucess: true, data });
+      // window.location.href = "http://localhost/fetch";
+      res.redirect('/fetch')
+      // res.status(201).json({ sucess: true, data });
       // res.redirect('/fetch')
+    })
+    .then(() => {
     })
     .catch((err) => {
       res.send(err);
